@@ -13,3 +13,4 @@ public class Park {
                 + time + " стоимость " + price );
     }
 }
+bfcb c
