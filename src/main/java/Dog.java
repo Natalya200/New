@@ -1,4 +1,4 @@
-package org.example;
+import org.example.Animal;
 
 public class Dog extends org.example.Animal {
     private static int dogCount = 0; // Счетчик собак

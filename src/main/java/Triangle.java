@@ -1,4 +1,4 @@
-package org.example;
+import org.example.Shape;
 
 public class Triangle implements Shape {
     double A; // Сторона A

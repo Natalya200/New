@@ -1,9 +1,9 @@
-package org.example;
+import org.example.Shape;
 
-public class Circle implements  Shape {
-    double radius; // Радиус круга
-    String fillColor; // Цвет заливки
-    String borderColor; // Цвет границы
+public class Circle implements Shape {
+    private double radius; // Радиус круга
+    private String fillColor; // Цвет заливки
+    private String borderColor; // Цвет границы
 
     public Circle(double radius, String fillColor, String borderColor) {
         this.radius = radius;
@@ -20,16 +20,6 @@ public class Circle implements  Shape {
     public double getArea() {
         return Math.PI * radius * radius; // Формула площади круга
     }
-
-    @Override
-    public void printInfo() {
-        System.out.println("Круг:");
-        System.out.println("Цвет заливки: " + fillColor);
-        System.out.println("Цвет границы: " + borderColor);
-        System.out.println("Периметр: " + getPerimeter());
-        System.out.println("Площадь: " + getArea());
-    }
-}
 
     @Override
     public void printInfo() {

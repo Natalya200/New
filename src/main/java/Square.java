@@ -1,4 +1,4 @@
-package org.example;
+import org.example.Shape;
 
 public class Square implements Shape {
     double a; // длина
