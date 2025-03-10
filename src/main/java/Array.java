@@ -25,7 +25,8 @@ public class Array {
         }
 
         return sum;
-    }}
+    }
+}
 
 
 
