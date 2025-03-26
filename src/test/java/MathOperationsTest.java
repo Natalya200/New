@@ -1,9 +1,9 @@
 import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.Assert.*;
+//import static org.testng.AssertJUnit.assertEquals;
 
-public class BaseTest {
+public class MathOperationsTest {
     // Тесты для вычисления факториала
     // Тесты для вычисления факториала
     @Test
