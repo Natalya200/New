@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestU {
-    // Тесты для вычисления факториала
+    // Вычисление факториала
     @Test
     void testCalculateFactorial() {
         assertEquals(1, Les12.calculateFactorial(0));
@@ -15,7 +15,7 @@ public class TestU {
         assertThrows(IllegalArgumentException.class, () -> Les12.calculateFactorial(-1));
     }
 
-    // Тесты для нахождения площади треугольника
+    // Площадь треугольника
     @Test
     void testCalculateTriangleArea() {
         assertEquals(10.0, Les12.calculateTriangleArea(5, 4));
@@ -58,7 +58,7 @@ public class TestU {
         assertThrows(ArithmeticException.class, () -> Les12.divide(10, 0));
     }
 
-    // Тесты для сравнения чисел
+    // Сравнение
     @Test
     void testCompareNumbers() {
         assertEquals("10 больше 5", Les12.compareNumbers(10, 5));
