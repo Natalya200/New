@@ -1,8 +1,10 @@
 import org.testng.annotations.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class BaseTest {
+    // Тесты для вычисления факториала
     // Тесты для вычисления факториала
     @Test
     public void testCalculateFactorial() {
