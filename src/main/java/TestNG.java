@@ -11,7 +11,7 @@ public class TestNG {
         return result;
     }
 
-    // 2. Нахождение площади треугольника
+    // 2. Площадь треугольника
     public static double calculateTriangleArea(double base, double height) {
         if (base <= 0 || height <= 0) {
             throw new IllegalArgumentException("Основание и высота должны быть положительными числами.");
