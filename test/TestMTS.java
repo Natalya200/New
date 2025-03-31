@@ -1,7 +1,8 @@
+
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,24 +11,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.Objects;
 
-public class TestMTS {
+class TestMTS {
     private WebDriver driver;
-    private WebDriverWait wait;
+    WebDriverWait wait;
     private final String URL = "http://mts.by";
-    private final String BLOCK_TITLE = "Онлайн пополнение без комиссии";
-    private final String LINK_TEXT = "Подробнее о сервисе";
-    private final String PHONE_NUMBER = "297777777";
+    final String BLOCK_TITLE = "Онлайн пополнение без комиссии";
+    final String LINK_TEXT = "Подробнее о сервисе";
+    final String PHONE_NUMBER = "297777777";
 
-    @Before
-    public void setUp() {
-        // Установка пути к WebDriver
-        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver"); // Укажите путь к вашему ChromeDriver
+    @BeforeEach
+    public void setup() {
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(URL);
-        wait = new WebDriverWait(driver, 10);
     }
 
     @Test
@@ -47,7 +43,7 @@ public class TestMTS {
         WebElement link = driver.findElement(By.linkText(LINK_TEXT));
         link.click();
         wait.until(ExpectedConditions.urlContains("service-details"));
-        Assert.assertTrue("Ссылка не ведёт на страницу с подробной информацией", driver.getCurrentUrl().contains("service-details"));
+        Assert.assertTrue("Ссылка не ведёт на страницу с подробной информацией", Objects.requireNonNull(driver.getCurrentUrl()).contains("service-details"));
     }
 
     @Test
@@ -77,3 +73,5 @@ public class TestMTS {
         }
     }
 }
+
+
