@@ -1,10 +1,11 @@
 
 import java.util.*;
+
 public class Student {
-    private String name;
-    private String group;
+    private final String name;
+    private final String group;
     private int course;
-    private List<Integer> grades;
+    private final List<Integer> grades;
 
     public Student(String name, String group, int course, List<Integer> grades) {
         this.name = name;
@@ -21,6 +22,7 @@ public class Student {
         }
         return (double) sum / grades.size();
     }
+
     // Метод для перевода на следующий курс
     public void promote() {
         course++;
@@ -34,10 +36,10 @@ public class Student {
         return course;
     }
 
-    @Override
     public String toString() {
         return "Студент: " + name + ", Группа: " + group + ", Курс: " + course + ", Оценки: " + grades;
     }
+
     // Метод для удаления студентов с низким средним баллом
     public static void removeLow(Set<Student> students) {
         students.removeIf(student -> student.getAverageGrade() < 3.0);

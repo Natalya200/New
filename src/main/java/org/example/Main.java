@@ -7,6 +7,8 @@ import static org.example.Student.printStudents;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+@SuppressWarnings("ALL")
 public class Main {
     public static void main(String[] args) {
         PhoneBook phoneBook = new PhoneBook();
@@ -27,8 +29,6 @@ System.out.println("Телефоны Васильева: " + phoneBook.get("Ва
         students.add(new Student("Сидоров", "Группа A", 2, List.of(5, 5, 4)));
         students.add(new Student("Кузнецов", "Группа B", 2, List.of(1, 2, 3)));
         }
-
-
 
     }
 
