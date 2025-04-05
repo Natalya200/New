@@ -9,17 +9,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MTSTest {
-    private WebDriver driver;
-    private MainPage mainPage;
+    public WebDriver driver;
+    public MainPage mainPage;
 
     @BeforeEach
     public void setUp() {
 
-        driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.get("http://mts.by");
 
         //  куки
-        Cookie cookie = new Cookie("cookieName", "cookieValue");
+        Cookie cookie = new Cookie("acceptCookies", "true");
         driver.manage().addCookie(cookie);
 
         mainPage = new MainPage(driver);
