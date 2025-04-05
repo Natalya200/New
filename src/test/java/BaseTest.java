@@ -47,7 +47,8 @@ public class BaseTest {
     }
 
     public String getCardNumberPlaceholder() {
-        return cardNumberInput.getAttribute("placeholder");
+        String placeholder = cardNumberInput.getAttribute("placeholder");
+        return placeholder;
     }
 
     public String getExpiryDatePlaceholder() {
