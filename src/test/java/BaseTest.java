@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,7 @@ public class BaseTest {
     private WebDriver driver;
 
     // Локаторы элементов
+    //driver.findElement(By.id(//*[@id="connection-phone"])) не срабатывает
     @FindBy(id = "amount")
     private WebElement amount;
 
