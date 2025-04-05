@@ -87,7 +87,8 @@ public class MainPage {
     }
 
     public String getPhoneInputPlaceholder() {
-        return phoneNumberInput.getAttribute("placeholder");
+        String placeholder = phoneNumberInput.getAttribute("placeholder");
+        return placeholder;
     }
 
     public String getContractNumberPlaceholder() {
