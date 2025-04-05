@@ -1,21 +1,27 @@
 import org.example.MainPage;
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static org.junit.jupiter.api.Assertions.*;
 
- public class MTSTest {
-
+public class MTSTest {
     private WebDriver driver;
     private MainPage mainPage;
 
     @BeforeEach
-    public void init() {
+    public void setUp() {
+
         driver = new ChromeDriver();
         driver.get("http://mts.by");
+
+        //  куки
+        Cookie cookie = new Cookie("cookieName", "cookieValue");
+        driver.manage().addCookie(cookie);
+
         mainPage = new MainPage(driver);
     }
 
@@ -23,13 +29,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
     public void testBlockTitle() {
         // Проверка заголовка блока
         String expectedTitle = "Онлайн пополнение без комиссии";
-        Assert.assertEquals(expectedTitle, mainPage.getBlockTitle());
+        assertEquals(expectedTitle, mainPage.getBlockTitle());
     }
 
     @Test
     public void testPaymentSystemLogos() {
         // Проверка наличия логотипов платёжных систем
-        Assert.assertTrue("Логотипы платёжных систем не найдены", mainPage.arePaymentSystemLogosDisplayed());
+        assertTrue(mainPage.arePaymentSystemLogosDisplayed(), "Логотипы платёжных систем не найдены");
     }
 
     @Test
@@ -38,23 +44,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
         mainPage.clickMoreDetailsLink();
         DetailsPage detailsPage = new DetailsPage(driver);
         String expectedTitle = "Подробнее о сервисе";
-        Assert.assertEquals(expectedTitle, detailsPage.getDetailsPageTitle());
+        assertEquals(expectedTitle, detailsPage.getDetailsPageTitle());
     }
 
     @Test
     public void testEmptyFieldLabels() {
         // Проверка надписей в незаполненных полях для каждого варианта оплаты
         mainPage.selectServiceOption();
-        Assert.assertEquals("Номер телефона", mainPage.getPhoneInputPlaceholder());
+        assertEquals("Номер телефона", mainPage.getPhoneInputPlaceholder());
 
         mainPage.selectHomeInternetOption();
-        Assert.assertEquals("Номер договора", mainPage.getContractNumberPlaceholder());
+        assertEquals("Номер договора", mainPage.getContractNumberPlaceholder());
 
         mainPage.selectInstallmentOption();
-        Assert.assertEquals("Номер договора", mainPage.getContractNumberPlaceholder());
+        assertEquals("Номер договора", mainPage.getContractNumberPlaceholder());
 
         mainPage.selectDebtOption();
-        Assert.assertEquals("Номер договора", mainPage.getContractNumberPlaceholder());
+        assertEquals("Номер договора", mainPage.getContractNumberPlaceholder());
     }
 
     @Test
@@ -68,22 +74,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
         BaseTest paymentConfirmationPage = new BaseTest(driver);
 
         // Проверка отображения суммы
-        Assert.assertEquals("10.00", paymentConfirmationPage.getAmount());
+        assertEquals("10.00", paymentConfirmationPage.getAmount());
 
         // Проверка отображения номера телефона
-        Assert.assertEquals("297777777", paymentConfirmationPage.getPhoneNumber());
+        assertEquals("297777777", paymentConfirmationPage.getPhoneNumber());
 
         // Проверка надписей в незаполненных полях для ввода реквизитов карты
-        Assert.assertEquals("Номер карты", paymentConfirmationPage.getCardNumberPlaceholder());
-        Assert.assertEquals("ММ/ГГ", paymentConfirmationPage.getExpiryDatePlaceholder());
-        Assert.assertEquals("CVV", paymentConfirmationPage.getCvvPlaceholder());
+        assertEquals("Номер карты", paymentConfirmationPage.getCardNumberPlaceholder());
+        assertEquals("ММ/ГГ", paymentConfirmationPage.getExpiryDatePlaceholder());
+        assertEquals("CVV", paymentConfirmationPage.getCvvPlaceholder());
 
         // Проверка наличия иконок платёжных систем
-        Assert.assertTrue("Иконки платёжных систем не найдены", paymentConfirmationPage.arePaymentSystemIconsDisplayed());
+        assertTrue(paymentConfirmationPage.arePaymentSystemIconsDisplayed(), "Иконки платёжных систем не найдены");
     }
 
     @AfterEach
     public void tearDown() {
+        // Закрытие браузера после тестов
         if (driver != null) {
             driver.quit();
         }

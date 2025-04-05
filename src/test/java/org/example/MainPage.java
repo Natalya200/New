@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class MainPage {
-    private final WebDriver driver;
 
     // Локаторы элементов
     @FindBy(xpath = "//h2[contains(text(), 'Онлайн пополнение без комиссии')]")
@@ -43,7 +42,6 @@ public class MainPage {
 
     // Конструктор
     public MainPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
