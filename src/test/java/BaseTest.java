@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class BaseTest {
-    private final WebDriver driver;
+    private WebDriver driver;
 
     // Локаторы элементов
     @FindBy(id = "amount")
