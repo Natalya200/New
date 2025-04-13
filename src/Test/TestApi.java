@@ -1,8 +1,12 @@
+import org.junit.jupiter.api.Test;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
+
 public class TestApi {
+    @Test
     public void getTest(){
         given()
                 .baseUri("https://postman-echo.com/get?foo1=bar1&foo2=bar2")
@@ -15,6 +19,7 @@ public class TestApi {
                 .body("args.foo2", equalTo("bar2")) // Проверка значения foo2
                 .body("headers", notNullValue()); // Проверка наличия заголовков
     }
+    @Test
     public void postTest() {
 
         given()
@@ -29,6 +34,7 @@ public class TestApi {
                 .body("json.foo1", equalTo("bar1")) // Проверка значения foo1
                 .body("json.foo2", equalTo("bar2")); // Проверка значения foo2
     }
+    @Test
     public void postFormDataTest() {
         given()
                 .baseUri("https://postman-echo.com/post")
@@ -42,6 +48,7 @@ public class TestApi {
                 .body("form.foo1", equalTo("bar1")) // Проверка значения foo1
                 .body("form.foo2", equalTo("bar2")); // Проверка значения foo2
     }
+    @Test
     public void putTest() {
         given()
                 .baseUri("https://postman-echo.com/put")
@@ -56,6 +63,7 @@ public class TestApi {
                 .body("json.foo1", equalTo("bar1")) // Проверка значения foo1
                 .body("json.foo2", equalTo("bar2")); // Проверка значения foo2
     }
+    @Test
     public void patchTest() {
 
         given()
@@ -70,6 +78,7 @@ public class TestApi {
                 .body("json.foo1", equalTo("bar1")) // Проверка значения foo1
                 .body("json.foo2", equalTo("bar2")); // Проверка значения foo2
     }
+    @Test
     public void deleteTest() {
 
         given()
